@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { CodeInput } from './components/CodeInput';
 import { DiagramOutput } from './components/DiagramOutput';
 import { SettingsPanel } from './components/SettingsPanel';
@@ -51,7 +51,7 @@ function App() {
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold text-gray-800">Code-to-DOT Diagram Visualizer</h1>
+          <h1 className="text-2xl font-bold text-gray-800">Code-to-DOT</h1>
           <div className="flex items-center gap-4">
             <button
               onClick={handleGenerateDiagram}
