@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CodeInput } from './components/CodeInput';
 import { DiagramOutput } from './components/DiagramOutput';
 import { SettingsPanel } from './components/SettingsPanel';
@@ -18,6 +18,7 @@ state deactivated()
 
 function App() {
   const [code, setCode] = useState(DEFAULT_CODE);
+  const [dotCode, setDotCode] = useState('');
   const [settings, setSettings] = useState<Settings>({
     prompt: '',
     apiKey: ''
@@ -42,6 +43,9 @@ function App() {
     try {
       const result = await generateDotDiagram(code, settings.prompt, settings.apiKey);
       setDotResult(result);
+      if (result.dotCode) {
+        setDotCode(result.dotCode);
+      }
     } finally {
       setIsGenerating(false);
     }
@@ -51,7 +55,7 @@ function App() {
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold text-gray-800">Code-to-DOT</h1>
+          <h1 className="text-2xl font-bold text-gray-800">Code-to-DOT Diagram Visualizer</h1>
           <div className="flex items-center gap-4">
             <button
               onClick={handleGenerateDiagram}
@@ -66,7 +70,19 @@ function App() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 h-[calc(100vh-8rem)]">
-          <CodeInput code={code} onChange={setCode} />
+          <div className="flex flex-col gap-4">
+            <div className="h-1/2">
+              <CodeInput code={code} onChange={setCode} />
+            </div>
+            <div className="h-1/2">
+              <textarea
+                value={dotCode}
+                onChange={(e) => setDotCode(e.target.value)}
+                className="w-full h-full p-4 font-mono text-sm bg-gray-50 border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="DOT code will appear here..."
+              />
+            </div>
+          </div>
           
           <div className="relative">
             {dotResult.error ? (
@@ -79,7 +95,7 @@ function App() {
                 )}
               </div>
             ) : (
-              <DiagramOutput dotCode={dotResult.dotCode || ''} />
+              <DiagramOutput dotCode={dotCode} />
             )}
           </div>
         </div>
