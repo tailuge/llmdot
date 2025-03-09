@@ -23,11 +23,24 @@
         .highlight {
             background-color: yellow;
         }
-        .links {
+        .links, .background {
             font-size: 14px;
+            font-weight: lighter;
             margin-top: 5px;
-            list-style-type: none;
-            padding: 0;
+            padding-left: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        .links li, .background li {
+            margin-bottom: 5px;
+        }
+        .background {
+            font-size: 10px;
+            color: gray;
+            margin-top: 10px;
+        }
+        del {
+            color: lightgrey;
         }
     </style>
 </head>
@@ -63,6 +76,12 @@
             <li><a href="https://github.com/tailuge/billiards?tab=readme-ov-file#cushion-bounce" target="_blank">PDF to code</a></li>
         </ul>
     </div>
+    <ul class="background" style="list-style-type: disc; padding-left: 20px;">
+        <li>Background</li>
+        <li>Beginnings <a href="https://github.com/tailuge/experiments" target="_blank">https://github.com/tailuge/experiments</a></li>
+        <li>ROI - so far the only investment is learning how to use it</li>
+        <li>In active use with tangible outcomes.</li>
+    </ul>
     
     <script>
         function toggleHighlight(element) {
