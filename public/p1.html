@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Pyramid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .layer {
+            border: 2px solid black;
+            padding: 15px;
+            margin: auto;
+            margin-top: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        .links {
+            font-size: 14px;
+            margin-top: 5px;
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1><del>How can we use AI</del> What tools can we create today?</h1>
+    <div class="layer" style="width: 250px;" onclick="toggleHighlight(this)">
+        Use of LLMs within products <br>
+        <ul class="links">
+            <li><a href="https://github.com/marketplace?type=models" target="_blank">GitHub Models</a></li>
+            <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html" target="_blank">AWS Bedrock</a></li>             
+        </ul>
+    </div>
+    <div class="layer" style="width: 300px;" onclick="toggleHighlight(this)">
+        Full-stack Application Synthesis <br>
+        <ul class="links">
+            <li><a href="https://bolt.new" target="_blank">bolt.new</a></li>
+            <li><a href="https://lovable.dev" target="_blank">lovable.dev</a></li>
+            <li><a href="https://github.com/tailuge/codorebyu" target="_blank">Codorebyu</a></li>
+            <li><a href="https://github.com/tailuge/llmdot" target="_blank">LLMdot</a></li>
+        </ul>
+    </div>
+    <div class="layer" style="width: 350px;" onclick="toggleHighlight(this)">
+        Multi-file Copilot Changes <br>
+        <ul class="links">
+            <li><a href="https://github.com/codespaces" target="_blank">GitHub Codespaces</a></li>
+        </ul>
+    </div>
+    <div class="layer" style="width: 400px;" onclick="toggleHighlight(this)">
+        Code Completion, Query ChatGPT <br>
+        <ul class="links">
+            <li><a href="https://chatgpt.com" target="_blank">ChatGPT</a></li>
+            <li><a href="https://github.com/marketplace/models/azure-openai/gpt-4o/playground" target="_blank">Azure OpenAI Playground</a></li>
+            <li><a href="https://github.com/tailuge/billiards?tab=readme-ov-file#cushion-bounce" target="_blank">PDF to code</a></li>
+        </ul>
+    </div>
+    
+    <script>
+        function toggleHighlight(element) {
+            element.classList.toggle('highlight');
+        }
+    </script>
+</body>
+</html>
